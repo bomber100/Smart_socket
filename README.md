@@ -20,7 +20,7 @@ GND | GND
 RFID Pin | RFID | Arduino Nano 
 --- | --- | --- 
 1 | TX | D10 
-2 | RX | D11 
+2 | RX | D9 
 3 | - | - 
 4 | GND | GND 
 5 | +5V | 5V 
