@@ -4,7 +4,7 @@
 const String SEPARATOR = ";";
 const int chipSelect = 10;
 const String fileName = "users.csv";
-const String cardCode = "gfrrj" + SEPARATOR;
+const String cardCode = "627" + SEPARATOR;
 
 void setup()
 {
