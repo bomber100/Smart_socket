@@ -4,7 +4,7 @@
 
 Card Reader | Arduino Nano 
 --- | --- 
-CS | D10 
+CS | D10 -> D8 
 SCK | D13 
 MOSI | D11 
 MISO | D12 
