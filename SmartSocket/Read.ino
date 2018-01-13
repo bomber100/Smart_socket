@@ -2,7 +2,7 @@
 #include <SD.h>
 
 const String SEPARATOR = ";";
-const int chipSelect = 10;
+const int chipSelect = 8;
 const String fileName = "users.csv";
 const String cardCode = "627" + SEPARATOR;
 
