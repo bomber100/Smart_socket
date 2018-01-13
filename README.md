@@ -6,7 +6,7 @@
 
 SD Pin | Card Reader | Arduino Nano 
 --- | --- | ---  
-6 | CS | D10 -> D8 
+6 | CS | D8 
 5 | SCK | D13 
 4 | MOSI | D11 
 3 | MISO | D12 
