@@ -30,4 +30,5 @@ RFID Pin | RFID | Arduino Nano
 
 ### Relay module
 
-Pin 6
+use Pin 6
+
