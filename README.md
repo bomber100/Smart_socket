@@ -21,10 +21,14 @@ SD Pin | Card Reader | Arduino Nano
 
 RFID Pin | RFID | Arduino Nano 
 --- | --- | --- 
-1 | TX | D10 
-2 | RX | D9 
+1 | TX | D2 
+2 | RX | D3 
 3 | - | - 
 4 | GND | GND 
 5 | +5V | 5V 
 
+
+### Relay module
+
+use Pin 6
 
