@@ -10,6 +10,8 @@ const int chipRelay = 6;
 const String fileName = "users.csv";
 const String SEPARATOR = ";";
 const int doubleReadDelay = 1000; 
+const int OFF = HIGH;
+const int ON = LOW;
 
 SoftwareSerial RfidReader(2, 3);
 String cardNumber, oldCard;
@@ -27,7 +29,7 @@ void setup()
     time = millis();
 
     pinMode(chipRelay, OUTPUT); 
-    relayState = HIGH; // turned off
+    relayState = OFF; // turned off
     oldCard = "";
     digitalWrite(chipRelay, relayState); 
 }
@@ -59,17 +61,17 @@ void switchRelay(String card, String userRecord){
     if(millis() - time < doubleReadDelay){
         return;
     }
-    Serial.println("Card ID: " + cardNumber);
+    Serial.println("Card ID: " + card);
 
-    if(relayState == HIGH){
-        relayState = LOW;
+    if(relayState == OFF){
+        relayState = ON;
         digitalWrite(chipRelay, relayState);
         oldCard = card;
         Serial.println("hello " + getUserName(userRecord) + ", turning ON");
     } 
-    else if(relayState == LOW){
+    else if(relayState == ON){
         if(card == oldCard){
-            relayState = HIGH;
+            relayState = OFF;
             digitalWrite(chipRelay, relayState);
             oldCard = "";
             Serial.println("welcome back " + getUserName(userRecord) + ", turning OFF");
