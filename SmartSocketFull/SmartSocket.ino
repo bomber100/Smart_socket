@@ -27,7 +27,6 @@ void setup()
     }
     RfidReader.begin(9600);
     time = millis();
-
     pinMode(chipRelay, OUTPUT); 
     relayState = OFF; // turned off
     oldCard = "";
@@ -61,17 +60,21 @@ void switchRelay(String card, String userRecord){
     if(millis() - time < doubleReadDelay){
         return;
     }
+
     Serial.println("Card ID: " + card);
 
     if(relayState == OFF){
         relayState = ON;
+
         digitalWrite(chipRelay, relayState);
         oldCard = card;
         Serial.println("hello " + getUserName(userRecord) + ", turning ON");
     } 
+
     else if(relayState == ON){
         if(card == oldCard){
             relayState = OFF;
+
             digitalWrite(chipRelay, relayState);
             oldCard = "";
             Serial.println("welcome back " + getUserName(userRecord) + ", turning OFF");
