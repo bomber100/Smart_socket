@@ -6,6 +6,7 @@
 #define DATA_LENGTH 14
 
 const int chipSDCard = 8;
+const int chipRelay2 = 5; // to save a jumper :)
 const int chipRelay = 6;
 const String fileName = "users.csv";
 const String SEPARATOR = ";";
@@ -29,9 +30,11 @@ void setup()
     time = millis();
 
     pinMode(chipRelay, OUTPUT); 
+    pinMode(chipRelay2, OUTPUT); 
     relayState = OFF; // turned off
     oldCard = "";
     digitalWrite(chipRelay, relayState); 
+    digitalWrite(chipRelay2, relayState); 
 }
 
 void loop() {
@@ -66,6 +69,7 @@ void switchRelay(String card, String userRecord){
     if(relayState == OFF){
         relayState = ON;
         digitalWrite(chipRelay, relayState);
+        digitalWrite(chipRelay2, relayState);
         oldCard = card;
         Serial.println("hello " + getUserName(userRecord) + ", turning ON");
     } 
@@ -73,6 +77,7 @@ void switchRelay(String card, String userRecord){
         if(card == oldCard){
             relayState = OFF;
             digitalWrite(chipRelay, relayState);
+            digitalWrite(chipRelay2, relayState);
             oldCard = "";
             Serial.println("welcome back " + getUserName(userRecord) + ", turning OFF");
         } else {
